@@ -1,0 +1,23 @@
+{
+  "name": "composer-api",
+  "author": "Nodejitsu <info@nodejitsu.com>",
+  "contributors": [
+    { "name": "Charlie Robbins", "email": "charlie@nodejitsu.com" },
+    { "name": "Maciej Malecki", "email": "maciej@nodejitsu.com" }
+  ],
+  "version": "0.0.0",
+  "description": "composer API client wrapper",
+  "homepage": "http://github.com/opsmezzo/composer-api",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/opsmezzo/composer-api.git"
+  },
+  "main": "./lib/client.js",
+  "dependencies": {
+    "request": "~2.14.x",
+    "utile": "~0.1.7"
+  },
+  "devDependencies": {
+    "assert-called": "~0.1.2"
+  }
+}
