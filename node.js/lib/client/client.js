@@ -123,6 +123,11 @@ Client.prototype._request = function (options, callback, success) {
   }
 
   //
+  // Emit options for debug purpose
+  //
+  this.emit('debug::request', options);
+
+  //
   // Helper function for checking response codes
   //
   function isOk(err, res, body) {
@@ -132,6 +137,11 @@ Client.prototype._request = function (options, callback, success) {
 
     var statusCode = res.statusCode.toString(),
         error;
+
+    //
+    //  Emit response for debug purpose
+    //
+    self.emit('debug::response', { statusCode: statusCode, result: body });
 
     if (Object.keys(self.failCodes).indexOf(statusCode) !== -1) {
       error = new Error('composer Error (' + statusCode + '): ' + self.failCodes[statusCode]);
@@ -157,6 +167,11 @@ Client.prototype._request = function (options, callback, success) {
 
       try { result = JSON.parse(body) }
       catch (ex) { }
+
+      //
+      //  Emit response for debug purpose
+      //
+      self.emit('debug::response', { statusCode: res.statusCode, result: result });
 
       success(res, result);
     });
